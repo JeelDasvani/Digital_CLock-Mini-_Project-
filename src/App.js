@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [count, setCount] = useState(0);
 
-  const Inc = () => {
-    setCount(count + 1);
+  let newTime = new Date().toLocaleTimeString();
+
+  const [ctime, setCtime] = useState(newTime);
+
+  
+  const UpdateTime = () => {
+    newTime =  new Date().toLocaleTimeString();
+    setCtime(newTime);
   };
-
+  setInterval(UpdateTime , 1000);
+  
   return (
     <>
-      <h1> {count} </h1>
-      <button onClick={Inc}>Click Me</button>
+      <h1> {ctime} </h1>
+      <button onClick={UpdateTime}>GET TIME</button>
     </>
   );
 };
